@@ -1,50 +1,34 @@
 import './App.css';
-import Axios from 'axios';
-import { useState } from 'react';
+import Header from './component/Header';
+import BoardList from './component/BoardList';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Contents from './pages/Contents'
+import BoardDetail from './component/BoardDetail';
 
 
 
 function App() {
-  
-  const [dataList, setDataList] = useState([]);
-  
-  const loadDataExample = () => {
-  Axios.get('http://localhost:3001/total').then( (response) => {
-    console.log(response.data);
-    setDataList(response.data)
-    
-  } )
-  }
-  
+
   return (
-    <div className="App">
-      <button onClick={loadDataExample}>start</button>
+    <BrowserRouter>
 
-            
-              <div align = "center">
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path ="/" exact={true} element ={<Contents />}/>
+        </Routes>
+        
+        <Routes>
+          <Route path ="/a" element ={<BoardList />}/>
+        </Routes>
 
-                <h1>프로젝트 프론트 화면 test</h1>
+        <Routes>
+          <Route path ="/BoardDetail/:id"  element ={<BoardDetail />}/>
+        </Routes>
 
-              <table border = "1px" >
-                <th>제목</th>
-                <th>내용</th>
-                <th>날짜</th>
+      </div>
 
-                {dataList.map( (data) => {
-                  return(
-                  <tr>
-                    <td>{data.title}</td>
-                    <td>{data.content}</td>
-                    <td>{data.regdate}</td>
-                  </tr>)
-                  } )}
-              </table>
-              </div>
-            
-            
-
-
-    </div>
+    </BrowserRouter>
   );
 }
 
