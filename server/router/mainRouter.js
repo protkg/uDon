@@ -1,54 +1,20 @@
 import express from 'express';
 import db from './../udonDb/udonDb.js'
+import { getBoardList , getBoardDetail, deleteBoardData ,updateBoardData, newBoardData } from './../controllers/mainControllers.js'
 
 //import를 쓰면 package.json에 module추가 해야함~!~!
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
+//body값을 위해, 아래 2개를 사용한다.put, post를 위해!
+router.use(express.json())
+router.use(express.urlencoded({extended:false}));
 
-    db.query("select m.nickname , d.* from Member m join Document d on m.id = d.writer", (err, result) => {
-
-        if(err){
-            console.log(err);
-    
-        }else{
-             res.send(result)
-            console.log(result);
-
-        }
-
-    })
-})
-
-
-router.get('/BoardDetail/:id', (req, res) => {
-    
-    var documentId = req.params.id;
-    console.log(documentId);
-
-    var sql = 'select m.nickname , d.* from Member m join Document d on m.id = d.writer where m.id = ?'
-    db.query(sql, documentId, (err,result) => {
-
-        if(err){
-            console.log(err);
-    
-        }else{
-
-            //만약 ejs였다면 res.render
-            
-             res.send(result)
-            console.log(result);
-
-        }
-
-
-    } )
-
-})
-
-
-
+router.get('/', getBoardList)
+router.get('/BoardDetail/:id', getBoardDetail)
+router.delete('/BoardDeleteData/:id', deleteBoardData)
+router.put('/updateBoardData/:id', updateBoardData)
+router.post('/newBoardData', newBoardData)
 
 export default router;
 
