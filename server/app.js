@@ -15,10 +15,10 @@ router.use(express.urlencoded({extended:false}));
 
 
 const db = mysql.createConnection({
-    user : '',
-    host : '',
-    password: '',
-    database: '',
+    user : 'bsk',
+    host : '101.101.219.43',
+    password: 'Ssac000@',
+    database: 'udondb',
 })
 
 
@@ -37,6 +37,7 @@ router.get('/', (req, res, next) => {
 
     })
 })
+
 
 router.get('/BoardDetail/:id', (req, res) => {
     
@@ -57,7 +58,6 @@ router.get('/BoardDetail/:id', (req, res) => {
             console.log(result);
 
         }
-        
 
 
     } )
