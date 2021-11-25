@@ -4,6 +4,8 @@ import db from './../udonDb/udonDb.js'
 
 export function getBoardList(req, res) {
 
+    console.log("오나?");
+
     db.query("select m.nickname , d.* from Member m join Document d on m.id = d.writer", (err, result) => {
         
         if(err){
@@ -23,7 +25,7 @@ export function getBoardDetail(req, res){
         const documentId = req.params.id;
         console.log(documentId);
     
-        const sql = 'select m.nickname , d.* from Member m join Document d on m.id = d.writer where m.id = ?'
+        const sql = 'select m.nickname , d.* from Member m join Document d on m.id = d.writer where d.id = ?'
         db.query(sql, documentId, (err,result) => {
     
             if(err){
@@ -81,7 +83,6 @@ export function newBoardData (req, res) {
         else { 
             console.log("입력성공");
             res.send(result)  }
-
     })
 
 }
@@ -97,7 +98,8 @@ export function deleteBoardData( req, res ) {
     db.query(sql, documentId, (err, result) => {
 
         if(err) { console.log( err )}
-        else { res.send(result)  }
+        else { res.send(result) 
+                console.log('삭제 실패'); }
 
     })
 }
