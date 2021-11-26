@@ -4,9 +4,10 @@ import db from './../udonDb/udonDb.js'
 
 export function getBoardList(req, res) {
 
-    console.log("오나?");
+    const locationId = req.params.id;
+    console.log("지역 id" + locationId);
 
-    db.query("select m.nickname , d.* from Member m join Document d on m.id = d.writer", (err, result) => {
+    db.query("select l.*, d.* from (select m.nickname , d.* from Member m join Document d on m.id = d.writer) d join Location l on d.location = l.id where l.pid = ?", locationId, (err, result) => {
         
         if(err){
             console.log(err);
@@ -88,8 +89,6 @@ export function newBoardData (req, res) {
 }
 
 
-
-
 export function deleteBoardData( req, res ) {
 
     const documentId = req.params.id;
@@ -99,10 +98,29 @@ export function deleteBoardData( req, res ) {
 
         if(err) { console.log( err )}
         else { res.send(result) 
-                console.log('삭제 실패'); }
+                console.log('삭제 성공'); }
 
     })
 }
 
 
 
+export function getLocalNum(req, res) {
+
+    const localId  = req.params.localId;
+
+    //키값이 같을경우, 중복으로 인식됌 >>alias로 모두 정해야함
+     const sql = 'select si.id,  si.name as siName, gu.id as gu_ID, gu.name from Location si left outer join Location gu on si.id = gu.pid where si.id = ?'
+    
+
+    db.query(sql, localId, (err, result) => {
+        if(err) {console.log( err)}
+        else{ 
+            res.send(result) 
+            console.log('성공');
+        }
+    })
+
+
+
+}

@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 
-const BoardList = () => {
+const BoardList = ({LocationId}) => {
 
     const [dataList, setDataList] = useState([]);
   
 
     useEffect(() => {
-        Axios.get('http://localhost:3001/').then((response) => {
+        Axios.get(`http://localhost:3001/${LocationId}`).then((response) => {
             console.log(response.data);
             setDataList(response.data)
         })

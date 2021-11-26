@@ -16,7 +16,6 @@ const BoardDetail = (  ) => {
 
         Axios.get(`http://localhost:3001/BoardDetail/${params}`).then((response) => {
 
-            console.log(response.data);
             setDataDetail(response.data[0])
             seteditDataFrom(response.data[0])
         })
@@ -63,10 +62,10 @@ const BoardDetail = (  ) => {
         })
         //에러 처리 확인 필요
         alert('수정 완료')
-        navigate('/')
+        navigate('/townBoard')
 
     }
-    
+
 
 
     return (
@@ -93,9 +92,10 @@ const BoardDetail = (  ) => {
 
                     <td><button onClick ={RowsEditClick}>수정</button></td>
 
-{/* 
-                    <td> <Link to ={`/BoardUpdate/${dataDetail.id}`}><button>수정</button></Link></td>
-                    <td> <Link to ={`/BoardDelete/${dataDetail.id}`}><button>삭제</button></Link></td> */}
+
+                    {/* <td> <Link to ={`/BoardUpdate/${dataDetail.id}`}><button>수정</button></Link></td> */}
+                    <td> <Link to ={`/BoardDelete/${dataDetail.id}`}><button>삭제</button></Link></td>
+
         </div>
       )
 
