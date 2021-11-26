@@ -5,7 +5,7 @@ import { useLocation } from "react-router"
 const BoardUpdate = () => {
 
     // const params = useParams().id
-           const upDateTarget = useLocation().state
+        const upDateTarget = useLocation().state
         const [upDateData, setUpdateDate] = useState([])
         const [upDateTitle, setUpDateTitle] = useState(upDateTarget.title);
         

@@ -27,9 +27,9 @@ function App() {
           <Route path ="/BoardDetail/:id"  element ={<BoardDetail />}/>
         </Routes>
         
-        <Routes>
+        {/* <Routes>
           <Route path ="/BoardUpdate/:id"  element ={<BoardUpdate />}/>
-        </Routes>
+        </Routes> */}
         
         <Routes>
           <Route path ="/BoardDelete/:id"  element ={<BoardDelete />}/>

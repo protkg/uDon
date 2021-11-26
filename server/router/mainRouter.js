@@ -1,5 +1,4 @@
 import express from 'express';
-import db from './../udonDb/udonDb.js'
 import { getBoardList , getBoardDetail, deleteBoardData ,updateBoardData, newBoardData } from './../controllers/mainControllers.js'
 
 //import를 쓰면 package.json에 module추가 해야함~!~!
