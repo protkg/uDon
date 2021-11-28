@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Axios from 'axios';
 import { useNavigate } from "react-router";
-
+import { Table, Card } from 'react-bootstrap'
 
 const BoardInput = () => {
 
@@ -50,8 +50,16 @@ const BoardInput = () => {
 
     <div>
         <form onSubmit ={onSubmit}>
-            <table>
-            
+            <Table>
+                    
+                <thead>
+                    <tr>
+                       <td> 입력</td><td> 내용</td>
+                    </tr>
+                    
+
+                   </thead>
+                   <tbody> 
                     <tr>
                         <td>제목</td>
                         <td><input type = "text" required onChange = {onChange} name = "title"/></td>
@@ -61,8 +69,8 @@ const BoardInput = () => {
                         <td>내용</td>
                         <td><input type = "text" required onChange = {onChange}  name = "content"/></td>
                     </tr>
-                
-            </table>
+                    </tbody>
+            </Table>
             {/* <button onClick = {save}>저장!!!</button> */}
             <button type = "submit">저장!!!222</button>
         </form>

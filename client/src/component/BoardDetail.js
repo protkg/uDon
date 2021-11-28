@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import BoardTableRows from "./BoardTableRows";
 import BoardTableRowsEdit from "./BoardTableRowsEdit";
 import axios from "axios";
+import { Table, Card } from 'react-bootstrap'
+
 
 const BoardDetail = (  ) => {
 
@@ -72,7 +74,7 @@ const BoardDetail = (  ) => {
         <div>
 
                 <h2>BoardDetail</h2>
-                <table border = "1" align = "center">
+                <Table border = "1" align = "center">
                     <thead>
                         <tr>
                             <td>상세내용</td>
@@ -86,7 +88,7 @@ const BoardDetail = (  ) => {
                                 
                     </tbody>                        
 
-                </table>
+                </Table>
 
 
 

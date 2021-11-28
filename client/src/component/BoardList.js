@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import { Table, Card } from 'react-bootstrap'
 
 
 const BoardList = ({LocationId}) => {
@@ -18,15 +19,18 @@ const BoardList = ({LocationId}) => {
 
     
     return (
-        <div>
+        
 
-            <div align="center">
+            <div align="center" >
+                
+                <Table responsive style={{width : '35rem'}}>
 
-                <table border="1px" >
+                    <thead >
                     <th>작성자</th>
                     <th>제목</th>
                     <th>날짜</th>
-
+                    </thead>
+                    <tbody>
                     {dataList.map((data) => {
 
                         return (
@@ -47,9 +51,10 @@ const BoardList = ({LocationId}) => {
                                 <td>{data.regdate}</td>
                             </tr>)
                     })}
-                </table>
+                    </tbody>
+                </Table>
+                    
             </div>
-        </div>
     )
 }
 

@@ -9,6 +9,8 @@ import BoardDelete from './component/BoardDelete';
 import TownBoard from './pages/townBoard';
 import BoardInput from './component/BoardInput';
 
+
+
 function App() {
 
   const UserLocationNum = 2;

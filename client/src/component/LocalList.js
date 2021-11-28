@@ -1,29 +1,30 @@
 import { useState } from "react";
-
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const LocalList = ({localData, userSi}) => {
 
 
     return (
         <>
-        <div>
-         
-        <h4>test님의 지역은 {userSi}</h4>
-    
+            <Navbar bg="light" variant = "light">
+                <Container>
+                 <Navbar.Brand>홍길동 님의 지역은 {userSi}</Navbar.Brand>
+                 <Nav className="me-auto">
 
-        <h7>소속 게시판</h7>
-         {localData.map((ldata) => {
+                    <br/>
+                    {localData.map((ldata) => {
 
-             return (
-                 <>
-                     <h6>{ldata.name}</h6>
-                 </>
-             )
+                        return (
+                            <>
+                                <Nav.Link>{ldata.name}</Nav.Link>
+                            </>
+                        )
 
-         } )}   
- 
-    </div>
-    </>
+                    })}
+                </Nav>
+                </Container>
+            </Navbar>
+        </>
     )
 }
 
