@@ -6,7 +6,7 @@ import BoardTableRows from "./BoardTableRows";
 import BoardTableRowsEdit from "./BoardTableRowsEdit";
 import axios from "axios";
 import { Table, Card } from 'react-bootstrap'
-
+import BoardComment from './BoardComment'
 
 const BoardDetail = (  ) => {
 
@@ -83,20 +83,19 @@ const BoardDetail = (  ) => {
                     
                     <tbody>
                         {(RowsEditFlag) == false ? 
-                        (<BoardTableRows dataDetail = {dataDetail}/>) : 
+                        ( <Card> <BoardTableRows dataDetail = {dataDetail}/> </Card> ) : 
                         (<BoardTableRowsEdit editDataForm = {editDataForm} updateBoardDataSet = {updateBoardDataSet} insertUpdateData = {insertUpdateData}/>)}
                                 
                     </tbody>                        
-
                 </Table>
-
 
 
                     <td><button onClick ={RowsEditClick}>수정</button></td>
 
-
                     {/* <td> <Link to ={`/BoardUpdate/${dataDetail.id}`}><button>수정</button></Link></td> */}
                     <td> <Link to ={`/BoardDelete/${dataDetail.id}`}><button>삭제</button></Link></td>
+                    
+                    <BoardComment/>
 
         </div>
       )

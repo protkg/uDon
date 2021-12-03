@@ -16,7 +16,6 @@ const BoardList = ({LocationId}) => {
         })
     },[setDataList])
 
-
     
     return (
         

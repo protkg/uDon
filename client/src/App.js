@@ -8,6 +8,7 @@ import BoardUpdate from './component/backup/BoardUpdate';
 import BoardDelete from './component/BoardDelete';
 import TownBoard from './pages/townBoard';
 import BoardInput from './component/BoardInput';
+import Register from './pages/register';
 
 
 
@@ -34,12 +35,10 @@ function App() {
         <Routes>
           <Route path = "/townBoard" element ={<TownBoard/>}/>
         </Routes>
-
         
         <Routes>
           <Route path = "/InputDataBoard" element ={<BoardInput/>}/>
         </Routes>
-
 
         {/* <Routes>
           <Route path ="/BoardUpdate/:id"  element ={<BoardUpdate />}/>
@@ -47,6 +46,10 @@ function App() {
         
         <Routes>
           <Route path ="/BoardDelete/:id"  element ={<BoardDelete />}/>
+        </Routes>
+
+        <Routes>
+          <Route path ="/Register"  element ={<Register/>}/>
         </Routes>
 
 
