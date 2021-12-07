@@ -77,8 +77,10 @@ const Header = ({ LocationId }) => {
 
         <LocalList localData ={localData} userSi ={userSi} userName ={userName}/>
 
-        <div align = "right" className = "register">
         
+
+        <div align = "right" className = "register">
+        { <Link style={{ textDecoration: 'none', color: 'black' }} to ="/" >홈</Link>}
         {!userData && (  <Link style={{ textDecoration: 'none', color: 'black' }} to ="/Register" >회원가입 </Link>)}
         {!userData  && (  <Link style={{ textDecoration: 'none', color: 'black' }}  to ="/Login"> 로그인 </Link>)}
         {userData && (  <Link  style={{ textDecoration: 'none', color: 'black' }} to ="/Logout"> 로그아웃 </Link>)}

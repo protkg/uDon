@@ -34,11 +34,12 @@ const Contents = ({LocationId}) => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="./../img/pexels-aleksandar-pasaric-2848492 (1).jpg"
+                        src="./../img/pexels-aleksandar-pasaric-2848492.jpg"
                         position = 'absolute'
                     />
 
                 </Carousel.Item>
+
                 </Carousel>
             </Container>
 
@@ -134,10 +135,12 @@ const Contents = ({LocationId}) => {
 
                     
                     </Row>
+                        
+                            <Store/>
+
                 </CardGroup>
-                    <Card>
-                        <Store/>
-                    </Card>
+
+                    
             </Container>
         </div>
     )
