@@ -2,7 +2,7 @@ import { Breadcrumb, CardGroup, Col, Container } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import BoardList from "../component/BoardList"
 import { Carousel, Card, Row } from "react-bootstrap"
-
+import Store from './../component/Store';
 
 const Contents = ({LocationId}) => {
     
@@ -50,7 +50,7 @@ const Contents = ({LocationId}) => {
                     <Row md ={3} style = {{ width : '100%' }} >
 
                         <Col md={5} >
-                            <Card >
+                            <Card>
 
                                 <Link to="/TownBoard" >게시판 더보기</Link>
                                 <BoardList LocationId={LocationId} />
@@ -132,8 +132,12 @@ const Contents = ({LocationId}) => {
                         </Card.Footer>
                     </Card>
 
+                    
                     </Row>
                 </CardGroup>
+                    <Card>
+                        <Store/>
+                    </Card>
             </Container>
         </div>
     )

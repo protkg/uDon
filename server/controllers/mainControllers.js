@@ -1,4 +1,5 @@
 import db from './../udonDb/udonDb.js'
+import bcrypto from 'bcryptjs'
 
 
 
@@ -18,6 +19,7 @@ export function getBoardList(req, res) {
         }
     })
 }
+
 
 
 
@@ -117,10 +119,141 @@ export function getLocalNum(req, res) {
         if(err) {console.log( err)}
         else{ 
             res.send(result) 
-            console.log('성공');
+            console.log('getLocalNum 성공');
         }
     })
 
+
+
+}
+
+
+//await 쓰면 ,>> async씀!!
+
+export async function userRegister ( req, res)  {
+
+    const loginid =  req.body.loginid 
+    const nickname = req.body.nickname 
+    const name = req.body.name 
+    const gender = req.body.gender 
+    const location = req.body.location 
+    const status = req.body.status 
+    const superuser = req.body.superuser 
+
+    
+    console.log("sssss");
+    
+    const findUserData = await findUser(loginid)
+    
+    console.log(findUserData.length);
+
+    //Promise { <pending> } 이기 때문에! await 써야함
+    //const check = await findUser(loginid)
+    if(findUserData.length < 1){
+        console.log("들어옴?");
+        const hashPassword = await bcrypto.hash(req.body.passwd,10)
+
+        console.log(hashPassword);
+    
+        const sql = "insert into Member(loginid, passwd, nickname, name, gender, location, status, superuser) values(?,?,?,?,?,?,?,?)"
+        
+        db.query(sql, [loginid,hashPassword,nickname,name,gender,location,status,superuser],(err, result) =>{
+    
+            if(err) { console.log( err )}
+    
+            else { 
+                console.log("가입 성공");
+                res.send(result)  }
+        })
+
+    }
+
+}
+
+
+import passport from 'passport';
+
+
+
+
+
+export async function userLogin (req, res, next) {
+    console.log("userLogin 실행");
+    
+    passport.authenticate('local', (err,user,info) => {
+
+        console.log(user);
+        if(err) throw err;
+
+        if(!user) res.send("유저 없음")
+
+        else{
+            console.log("처리");
+            console.log(req.loginid)
+            //바디부분에 들어옴
+            // body: { loginid: 'registerId7', passwd: 'registerPw' },
+
+
+            // req.loginid(user, err => {
+            //     if(err) throw err;
+            //     res.send("성공 authenticate")
+            //     console.log(req.user);
+            // }
+            //)
+        }
+
+    })(req, res, next)
+
+
+
+    // const loginid =  req.body.loginid 
+
+    
+    // const sql = "select * from Member where loginid = ?"
+    
+    //  db.query(sql, [loginid], (err, result) =>{
+
+    //     if(err) { console.log( err )}
+
+    //     else { 
+    //         console.log("로그인 성공");
+    //         res.send(result)  }
+    // })
+
+}
+
+
+
+export async function findUser (loginid) {
+    console.log("findUser 호출");
+    console.log(loginid);
+    const sql = "select * from Member where loginid = ?"
+    
+    //아래처럼 쓰면 안됀다..
+    //   db.query(sql, [loginid],  (err, result) => {
+
+    //     if(err) { console.log( err )}
+
+    //     else { 
+    //         console.log("아이디 확인 완료");
+    //         //배열 값으로 들어옴
+            
+    //         console.log(result[0].name);
+    //         return result[0]
+    //          }
+    // })
+
+    return new Promise( (resolve, reject) => {
+        console.log("아이디찾기 실행");
+        db.query(sql, [loginid], function( err, result){
+            if(err) {  
+                reject( console.log(err) )  }
+            
+            else{ 
+              resolve( result )}
+        })
+
+    } )
 
 
 }

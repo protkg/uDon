@@ -71,9 +71,11 @@ const BoardDetail = (  ) => {
 
 
     return (
-        <div>
+        <div align = "center">
 
-                <h2>BoardDetail</h2>
+                
+                <Card style = {{ width : '50%' }}>
+                {/* <Row md ={3} style = {{ width : '100%' }} > */}
                 <Table border = "1" align = "center">
                     <thead>
                         <tr>
@@ -88,13 +90,14 @@ const BoardDetail = (  ) => {
                                 
                     </tbody>                        
                 </Table>
-
-
-                    <td><button onClick ={RowsEditClick}>수정</button></td>
+                    <label>
+                    <button onClick ={RowsEditClick}>수정</button>
 
                     {/* <td> <Link to ={`/BoardUpdate/${dataDetail.id}`}><button>수정</button></Link></td> */}
-                    <td> <Link to ={`/BoardDelete/${dataDetail.id}`}><button>삭제</button></Link></td>
-                    
+                    <Link to ={`/BoardDelete/${dataDetail.id}`}><button>삭제</button></Link>
+                    </label>
+                    </Card>                  
+
                     <BoardComment/>
 
         </div>

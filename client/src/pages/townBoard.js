@@ -7,7 +7,7 @@ const TownBoard = () => {
     return (
         <div>
                 <h1>TownBoard</h1>
-                <Link to ="/InputDataBoard">게시글 삽입</Link>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to ="/InputDataBoard">게시글 삽입</Link>
 
                 <BoardList/>
                 

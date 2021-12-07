@@ -9,6 +9,8 @@ import BoardDelete from './component/BoardDelete';
 import TownBoard from './pages/townBoard';
 import BoardInput from './component/BoardInput';
 import Register from './pages/register';
+import Login from './pages/login';
+import Logout from './pages/logout';
 
 
 
@@ -18,17 +20,20 @@ function App() {
 
 
   return (
-    <BrowserRouter>
 
+<BrowserRouter>
       <div className="App">
-
+      
+        
+        
         <Header LocationId = {UserLocationNum}/>
 
         <Routes>
           <Route path ="/"  element ={<Contents LocationId = {UserLocationNum}/>}/>
         </Routes>
-        
+
         <Routes>
+          
           <Route path ="/BoardDetail/:id"  element ={<BoardDetail />}/>
         </Routes>
         
@@ -49,10 +54,17 @@ function App() {
         </Routes>
 
         <Routes>
-          <Route path ="/Register"  element ={<Register/>}/>
+          <Route path ="/Register"  element ={<Register />}/>
         </Routes>
 
-
+        <Routes>
+          <Route path ="/Login"  element ={<Login />}/>
+        </Routes>
+        
+        <Routes>
+          <Route path ="/Logout"  element ={<Logout />}/>
+        </Routes>
+       
       </div>
 
     </BrowserRouter>

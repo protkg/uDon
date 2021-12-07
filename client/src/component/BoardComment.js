@@ -135,16 +135,28 @@ const BoardComment = () => {
 
         return (
             <>
-                <h3>댓글</h3>
-
+                <br/>
+                <br/>
+                <Card  style = {{ width : '50%' }}>
+                <h3>댓글 쓰기</h3>
+                    <label>
+                <input type = "text" name = "content" onChange={onChange} ></input> 
+                    <button onClick = {inputComment} >입력</button></label>
+                    </Card>   
                         {commentoriginal.map( (data) => {
                             return(
                                 <>
-                                        <div key = {data.id}>{data.writer}</div>
-                                        <span>{data.content}</span>
+                                
+                                        <Card  style = {{ width : '50%' }}>
+                                        <div key = {data.id} align = "left">아이디 : {data.writer}</div>
+                                        
+                                        <span> 내용 :  {data.content}</span>
+                                        </Card>         
+                                        <br/>
+                                        <Card  style = {{ width : '40%' }}>
                                         <div>{ ( getReplies(data.id) ).map ( (replydata) => {
                                                    
-                                                return( <><h4>{replydata.content} </h4></>)
+                                                return( <><h6> 댓글 내용 : {replydata.content} </h6></>)
                                             }
                                             
                                         )}
@@ -152,20 +164,23 @@ const BoardComment = () => {
                                          {/* <span onClick={(event) => handleReply(event, data.id)  }>답글</span>  */}
                                         <br/>
                                     {/* {(replyflag) == false ? (<span onClick={replyClick}>   // 답글</span>) : ( <><input type = "text"/> <button >입력</button> </>)} */}
-                                        
-                                        { replyflag === data.id ? (<><input type = "text" name = "content" 
-                                         onChange={onChangeRe}/><button onClick = { ()=> inputReply(data.id)}>입력</button> </>) 
-                                         : <button onClick={ (event) => handleReply(event, data.id)  }> 답글!!</button> }
+                                        <div align = "right">
+                                        { replyflag === data.id ? 
+                                        (<><input type = "text" name = "content" onChange={onChangeRe}/>
+                                             <button onClick = { ()=> inputReply(data.id)}>입력</button> </>) 
 
-                                        
+                                         : <button onClick={ (event) => handleReply(event, data.id)  }> 댓글달기</button> }
+                                         </div>
+                                         </Card>
                                 </>
                                 
                                    )
                             }
                         )}
+                        
                     <br/>
-                
-                    <input type = "text" name = "content" onChange={onChange} ></input> <button onClick = {inputComment} >입력</button>
+                        
+                    
 
             </>
         )

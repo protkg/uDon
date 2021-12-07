@@ -10,7 +10,7 @@ const BoardList = ({LocationId}) => {
   
 
     useEffect(() => {
-        Axios.get(`http://localhost:3001/${LocationId}`).then((response) => {
+        Axios.get(`http://localhost:3001/local/${LocationId}`).then((response) => {
             console.log(response.data);
             setDataList(response.data)
         })
@@ -36,7 +36,7 @@ const BoardList = ({LocationId}) => {
 
                             <tr key = {data.id}>
                                 <td>{data.nickname}</td>
-                                <td> <Link to ={`/BoardDetail/${data.id}`}>{data.title}</Link></td>
+                                <td> <Link style={{ textDecoration: 'none', color: 'black' }} to ={`/BoardDetail/${data.id}`}>{data.title}</Link></td>
                                 
                                 
                                  {/* <td> <Link to = { { pathname : `/BoardDetail/${data.id}`,

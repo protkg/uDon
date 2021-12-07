@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 //부트스트랩 import
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+
+
 ReactDOM.render(
     <React.StrictMode>
     <App />

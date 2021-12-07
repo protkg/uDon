@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
-const LocalList = ({localData, userSi}) => {
+const LocalList =  ({localData, userSi, userName}) => {
+
+    console.log("userName >>>", userName);
 
 
     return (
         <>
             <Navbar bg="light" variant = "light">
                 <Container>
-                 <Navbar.Brand>홍길동 님의 지역은 {userSi}</Navbar.Brand>
+                 <Navbar.Brand>나의 동네 {userSi}</Navbar.Brand>
                  <Nav className="me-auto">
 
                     <br/>

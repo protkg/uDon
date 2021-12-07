@@ -48,7 +48,8 @@ const BoardInput = () => {
 
     return (
 
-    <div>
+    <div align = "center">
+            <Card style = {{ width : '50%' }}>
         <form onSubmit ={onSubmit}>
             <Table>
                     
@@ -62,18 +63,19 @@ const BoardInput = () => {
                    <tbody> 
                     <tr>
                         <td>제목</td>
-                        <td><input type = "text" required onChange = {onChange} name = "title"/></td>
+                        <td><input type = "text" required onChange = {onChange} name = "title" size = "50"/></td>
                     </tr>
 
                     <tr>
                         <td>내용</td>
-                        <td><input type = "text" required onChange = {onChange}  name = "content"/></td>
+                        <td><input type = "text" required onChange = {onChange}  name = "content" size = "50"/></td>
                     </tr>
                     </tbody>
             </Table>
             {/* <button onClick = {save}>저장!!!</button> */}
-            <button type = "submit">저장!!!222</button>
+            <button type = "submit">저장!!!</button>
         </form>
+        </Card>
         </div>
     )
 }
