@@ -39,7 +39,6 @@ const Store = () => {
            withCredentials : true
 
         } ).then( (res) => {
-        console.log("sodijfsoidfj", res.data.items)
         setStoreData(res.data.items)
         })
 

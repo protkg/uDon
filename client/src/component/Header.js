@@ -81,6 +81,8 @@ const Header = ({ LocationId }) => {
 
         <div align = "right" className = "register">
         { <Link style={{ textDecoration: 'none', color: 'black' }} to ="/" >홈</Link>}
+        { <Link style={{ textDecoration: 'none', color: 'black' }} to ="/" > </Link>}
+
         {!userData && (  <Link style={{ textDecoration: 'none', color: 'black' }} to ="/Register" >회원가입 </Link>)}
         {!userData  && (  <Link style={{ textDecoration: 'none', color: 'black' }}  to ="/Login"> 로그인 </Link>)}
         {userData && (  <Link  style={{ textDecoration: 'none', color: 'black' }} to ="/Logout"> 로그아웃 </Link>)}

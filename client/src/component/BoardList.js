@@ -19,8 +19,8 @@ const BoardList = ({LocationId}) => {
     
     return (
         
-
-            <div align="center" >
+        <div align="center" >
+                
                 
                 <Table responsive style={{width : '35rem'}}>
 

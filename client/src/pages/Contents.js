@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import BoardList from "../component/BoardList"
 import { Carousel, Card, Row } from "react-bootstrap"
 import Store from './../component/Store';
+import CovidInfo from './../component/CovidInfo'
 
 const Contents = ({LocationId}) => {
     
@@ -50,7 +51,8 @@ const Contents = ({LocationId}) => {
                 <CardGroup>
                     <Row md ={3} style = {{ width : '100%' }} >
 
-                        <Col md={5} >
+                                <Col md={5} >
+                                <h4>동네이야기</h4>
                             <Card>
 
                                 <Link to="/TownBoard" >게시판 더보기</Link>
@@ -58,16 +60,15 @@ const Contents = ({LocationId}) => {
                             </Card>
                         </Col>
 
-                        <Col md={3} >
+                        {/* <Col md={3} >
                             <Card >
                                 <h4>날씨</h4>
                             </Card>
-                        </Col>
+                        </Col> */}
 
-                        <Col md={3} >
-                            <Card>
-                            <h4>코로나</h4>
-                            </Card>
+                        <Col md={3} style = {{ width : '55%' }}>
+                 
+                          <CovidInfo/>
                         </Col>
 
                     </Row>
