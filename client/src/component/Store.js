@@ -21,7 +21,7 @@ const Store = () => {
 
     useEffect( () => {
         
-        const url = "/v1/search/local.json?";
+        const url = "/naver/v1/search/local.json?";
         let params = encodeURI('query') + '=' + '서울 음식점';
         params += '&' + encodeURI('display') + '=' + '4';
         params += '&' + encodeURI('start') + '=' + '1';

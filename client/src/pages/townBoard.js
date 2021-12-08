@@ -8,7 +8,7 @@ const TownBoard = () => {
         <div>
                 <h1>TownBoard</h1>
                 <Link style={{ textDecoration: 'none', color: 'black' }} to ="/InputDataBoard">게시글 삽입</Link>
-
+                
                 <BoardList/>
                 
         </div>
