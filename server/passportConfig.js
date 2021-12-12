@@ -84,7 +84,7 @@ export default function passportInput(passport){
 
         const userData =  await findUser(user)
            
-        console.log("들어옴??", userData);
+        console.log("deserializeUser들어옴??", userData);
 
            if(userData) { 
            

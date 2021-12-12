@@ -20,6 +20,7 @@ const Login = () => {
     const navigate = useNavigate();
     const login = async () => {    
         
+        axios.defaults.withCredentials = true;
 
         await axios({
             method : "post",
@@ -46,9 +47,9 @@ const Login = () => {
                     //   setLocation(a)
                     //  console.log(a.location)
 
-                       navigate(`/`, {
-                          state : res.data
-                         })
+                    //    navigate(`/`, {
+                    //       state : res.data
+                    //      })
                      }
                 }
             )

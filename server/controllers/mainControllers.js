@@ -25,6 +25,8 @@ export function getBoardList(req, res) {
 
 export function getBoardDetail(req, res){
     
+         console.log("되나>>>>>>>",req.user);
+
         const documentId = req.params.id;
         console.log(documentId);
     

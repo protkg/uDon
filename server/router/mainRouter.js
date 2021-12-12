@@ -99,18 +99,26 @@ router.post('/Register', userRegister)
 // );
 
 
+// //해당부분이 제일 주요~!~!
+// router.post('/Login', 
+//   passport.authenticate('local', { failureRedirect: 'https://localhost:3000/'} ),
+//   function(req, res) {
+//     console.log("User >>> ", req.user );
+//     res.json(req.user);
+//   }
+//   );
+
 //해당부분이 제일 주요~!~!
 router.post('/Login', 
   passport.authenticate('local', { failureRedirect: 'https://localhost:3000/'} ),
   function(req, res) {
-    console.log("User >>> ", req.user );
-    res.json(req.user);
-  });
+    res.json( {msg : "로그인 성공" })
+  }
+  );
+
 
 
   
-
-
 router.get('/Logout',  (req, res) =>{
   // console.log("들어옴");
   // res.clearCookie('connect.sid');
@@ -135,8 +143,8 @@ router.get('/Logout',  (req, res) =>{
 
     req.session.destroy(() => {
     console.log("들어옴2");
-    res.clearCookie('connect.sid');
-    res.json( {msg : "쿠키 삭제 완료" })
+      res.clearCookie('connect.sid');
+      res.json( {msg : "쿠키 삭제 완료" })
 
   });
 
