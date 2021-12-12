@@ -7,6 +7,7 @@ const Logout = () => {
       useEffect( () =>{
 
         axios.get( 'http://localhost:3001/Logout' ).then((response) => {
+          console.log("로그아웃 응답 값!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             console.log(response)
         })
 

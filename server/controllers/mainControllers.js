@@ -244,16 +244,25 @@ export async function findUser (loginid) {
     // })
 
     return new Promise( (resolve, reject) => {
+
         console.log("아이디찾기 실행");
         db.query(sql, [loginid], function( err, result){
             if(err) {  
                 reject( console.log(err) )  }
             
             else{ 
-              resolve( result )}
+                console.log("아이디 찾았음");
+                console.log(result);
+              return resolve( result )}
         })
 
     } )
 
 
 }
+
+
+
+
+
+

@@ -126,15 +126,32 @@ router.get('/Logout',  (req, res) =>{
   //   req.logout();
   //   res.cookie('connect.sid','',{maxAge:0});
   // });
-   req.logout();
-  req.session.destroy();
-  res.clearCookie('connect')
-  console.log("들어옴");
+  //  req.logout();
+  // req.session.destroy();
+  // console.log("들어옴");
+  
+  console.log("로그아웃 들어옴");
+  res.clearCookie('connet.sid')
+
+    req.session.destroy(() => {
+    console.log("들어옴2");
+    res.clearCookie('connect.sid');
+    res.json( {msg : "쿠키 삭제 완료" })
+
+  });
+
+//   req.session.destroy(function() {
+//     res.clearCookie('connect.sid', { path: '/' });
+
+// });
+  
     
 //    res.cookie('connect.sid','',{maxAge:0});
 
 }
 );
+
+
 
 
 // router.get('/Logout', (req, res) => {
