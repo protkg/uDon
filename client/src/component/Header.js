@@ -13,10 +13,7 @@ import { UserContext } from '../UserContext/UserContext'
 const Header =  ({ LocationId }) => {
 
 
-
-
     const { user } = useContext(UserContext)
-
 
 
     let userData = useLocation().state
@@ -28,18 +25,19 @@ const Header =  ({ LocationId }) => {
     
     let flag = null;
 
-    if(userData){
+    if(user){
         
-        console.log("되라....");
-        console.log(userData.location)
-        LocationId = userData.location
-        flag = true
+        // console.log("되라....");
+        // console.log(userData.location)
+        LocationId = user.location
+        //flag = true
         
-    }else{
-        console.log("오나????")
-        userData = false
-        flag = false
     }
+    // else{
+    //     console.log("오나????")
+    //     userData = false
+    //     //flag = false
+    // }
 
 
 
@@ -90,16 +88,22 @@ const Header =  ({ LocationId }) => {
         
 
         <div align = "right" className = "register">
+        { user ? ( <h6><b> 안녕하세요! {user.nickname}님</b> </h6>) : (<></>)}
         { <Link style={{ textDecoration: 'none', color: 'black' }} to ="/" >홈</Link>}
 
         { <Link style={{ textDecoration: 'none', color: 'black' }} to ="/" > </Link>}
 
-        { (!userExistNickname || !userData) && (  <Link style={{ textDecoration: 'none', color: 'black' }} to ="/Register" >회원가입 </Link>)}
+        {/* { (!userExistNickname || !userData) && (  <Link style={{ textDecoration: 'none', color: 'black' }} to ="/Register" >회원가입 </Link>)}
         { (!userExistNickname || !userData)  && (  <Link style={{ textDecoration: 'none', color: 'black' }}  to ="/Login"> 로그인 </Link>)}
 
-        { flag ? ( <Link  style={{ textDecoration: 'none', color: 'black' }} to ="/Logout"> 로그아웃 </Link> ) : (<></>)}
-        { flag ? ( <h4>안녕하세요 {userExistNickname}님 </h4>) : (<></>)}
-        {user ? (<h4> {  user.id}</h4>) : (<></>) }
+        { flag ? ( <Link  style={{ textDecoration: 'none', color: 'black' }} to ="/Logout"> 로그아웃 </Link> ) : (<></>)} */}
+
+        { user ?  (<></>) : (  <Link style={{ textDecoration: 'none', color: 'black' }} to ="/Register" >회원가입 </Link>)  }
+        { user ?  (<></>) : (  <Link style={{ textDecoration: 'none', color: 'black' }}  to ="/Login"> 로그인 </Link>)  }
+
+        { user ? ( <Link  style={{ textDecoration: 'none', color: 'black' }} to ="/Logout"> 로그아웃 </Link> ) : (<></>)}
+
+
         </div>
         </>
     )

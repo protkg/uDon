@@ -76,13 +76,15 @@ const Login = () => {
     return (
         <div align = "center">
         <h1>로그인</h1>
-
+        
         <Card style = {{ width : '25%' }}  ><Table>
             <thead></thead>
             <tbody>
-                <tr> <td>아이디</td><td> <input type="text" placeholder='아이디' onChange={ e => setLoginId (e.target.value)}/>  </td></tr>
-                <tr> <td>비번</td><td><input type="text" placeholder='비번'  onChange={ e => setLoginPw (e.target.value)}/></td></tr>
+                
+                <tr> <td>아이디</td><td> <input type="text" required onChange={ e => setLoginId (e.target.value)}  placeholder='아이디'/>  </td></tr>
+                <tr> <td>비번</td><td><input type="text" required onChange={ e => setLoginPw (e.target.value)}  placeholder='비번'   /></td></tr>
                 <tr> <td colspan = "2"><input type = "button" value = "로그인"  onClick = {login} /></td></tr>
+                
             </tbody>
             
         </Table></Card>

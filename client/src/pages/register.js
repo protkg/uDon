@@ -1,6 +1,7 @@
 import { Table, Card } from 'react-bootstrap'
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
@@ -12,6 +13,8 @@ const Register = () => {
     const [registerGender, setregisterGender] = useState(1);
     const [registerLocation, setregisterLocation] = useState(7);
 
+
+    const Navigate  = useNavigate();
 
     const register = () => {
         axios({
@@ -30,7 +33,15 @@ const Register = () => {
             // //withCredentials : true,
             url : 'http://localhost:3001/Register'
         })
-        .then(alert('가입성공'))
+        .then(() => {
+
+
+            alert('가입성공')
+            Navigate('/Login')
+
+        }
+
+            )
     }
 
 

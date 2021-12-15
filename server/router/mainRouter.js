@@ -141,11 +141,11 @@ router.get('/Logout',  (req, res) =>{
   // req.session.destroy();
   // console.log("들어옴");
   
-  console.log("로그아웃 들어옴");
-  res.clearCookie('connet.sid')
+  // console.log("로그아웃 들어옴");
+  // res.clearCookie('connet.sid')
 
     req.session.destroy(() => {
-    console.log("들어옴2");
+      console.log("들어옴2");
       res.clearCookie('connect.sid');
       res.json( {msg : "쿠키 삭제 완료" })
 
