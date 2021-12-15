@@ -1,17 +1,24 @@
 import { Table, Card } from 'react-bootstrap'
-import { createContext, useState } from 'react'
+import { useState, useContext } from 'react'
 import axios from 'axios';
 import { useNavigate } from "react-router";
+import { UserContext } from './../UserContext/UserContext.js'
 
-const userContext = createContext({})
+
+
+
 
 const Login = () => {
+    
+    const { user, setUser } = useContext(UserContext);
 
     const [loginId, setLoginId] = useState("");
     const [loginPw, setLoginPw] = useState("");
     const [location, setLocation] = useState("");
 
+
     
+
 
     console.log(loginId)
     console.log(loginPw)
@@ -47,9 +54,16 @@ const Login = () => {
                     //   setLocation(a)
                     //  console.log(a.location)
 
-                    //    navigate(`/`, {
-                    //       state : res.data
-                    //      })
+                    console.log("체크체크체크체크", res.data)
+
+                    setUser(res.data)
+
+                       navigate(`/`, {
+                          state : res.data
+                          
+                         })
+
+                         
                      }
                 }
             )

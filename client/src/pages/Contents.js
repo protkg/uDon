@@ -8,8 +8,10 @@ import CovidInfo from './../component/CovidInfo'
 const Contents = ({LocationId}) => {
     
     return (
+        
         <div align = 'center' >
            <Container style = {{ height : '45rem', overflow : 'hidden' }}>
+
             <Carousel style = {{ height : '50rem'}} >
                 <Carousel.Item style = {{ height : '50rem'}}>
                     <img
@@ -56,7 +58,9 @@ const Contents = ({LocationId}) => {
                             <Card>
 
                                 <Link to="/TownBoard" >게시판 더보기</Link>
+
                                 <BoardList LocationId={LocationId} />
+                                
                             </Card>
                         </Col>
 

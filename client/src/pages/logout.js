@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 
 const Logout = () => {
 
+    const navigate = useNavigate()
+
       useEffect( () =>{
 
-        axios.get( 'http://localhost:3001/Logout' ).then((response) => {
-          console.log("로그아웃 응답 값!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            console.log(response)
+        axios.get( 'http://localhost:3001/Logout' ).then(() => {
+
+          alert('로그아웃 성공~!')
+          navigate(`/`, {
+            state : false
+           })
+          
+
         })
 
       } ,[])  
@@ -17,7 +25,6 @@ const Logout = () => {
     return (
         <div>
 
-           <h1> 삭제 페이지입니다.</h1>
 
         </div>
     )

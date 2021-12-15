@@ -50,7 +50,7 @@ const Store = () => {
     return (
         <div>
             <br/>
-            <h3>네이버 지역 API</h3>
+            <h4>네이버 지역 API</h4>
 
             <Row md ={4} style = {{ width : '100%' }} >
              {StoreData.map( (data) => {
@@ -60,9 +60,10 @@ const Store = () => {
                  <Card>
                         {/* <Card.Img variant="top" src="./../img/pexels-lisa-1279330.jpg" /> */}
                         <Card.Body>
+                    
+                        <Card.Img variant="top" src="./../img/pexels-kaique-rocha-331990.jpg" />
                             <Card.Title>{data.title}</Card.Title>
                             <Card.Text>
-                            {data.link}<br/>
                             {data.address}
                             </Card.Text>
                         </Card.Body>

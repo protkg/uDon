@@ -14,6 +14,8 @@ const BoardDetail = (  ) => {
     const params = useParams().id;  
     const [dataDetail, setDataDetail] = useState([]);
   
+
+    
     useEffect(() => {
 
         Axios.get(`http://localhost:3001/BoardDetail/${params}`).then((response) => {
@@ -23,6 +25,8 @@ const BoardDetail = (  ) => {
         })
         
     }, [setDataDetail])
+
+
 
     const [RowsEditFlag, setRowsEditFlag] = useState(false)
 

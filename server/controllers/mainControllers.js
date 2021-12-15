@@ -5,6 +5,8 @@ import bcrypto from 'bcryptjs'
 
 export function getBoardList(req, res) {
 
+    console.log("유저값",req.user);
+
     const locationId = req.params.id;
     console.log("지역 id" + locationId);
 
@@ -25,11 +27,16 @@ export function getBoardList(req, res) {
 
 export function getBoardDetail(req, res){
     
-         console.log("되나>>>>>>>",req.user);
+        let userData;
+        console.log(req.user);
+        if(req.user){
+            userData = req.user;
+        }
+        
 
         const documentId = req.params.id;
         console.log(documentId);
-    
+            
         const sql = 'select m.nickname , d.* from Member m join Document d on m.id = d.writer where d.id = ?'
         db.query(sql, documentId, (err,result) => {
     
@@ -111,7 +118,22 @@ export function deleteBoardData( req, res ) {
 
 export function getLocalNum(req, res) {
 
-    const localId  = req.params.localId;
+    console.log("해드 부분", req.user);
+
+    let localId  = req.params.localId;
+    let userNickname ;
+
+    if(req.user){
+        console.log("정상~!~!");
+        localId  = req.user.location;
+        userNickname  = req.user.nickname;
+
+    }else {
+        localId  = req.params.localId;
+        userNickname  = null;
+    }
+
+    
 
     //키값이 같을경우, 중복으로 인식됌 >>alias로 모두 정해야함
      const sql = 'select si.id,  si.name as siName, gu.id as gu_ID, gu.name from Location si left outer join Location gu on si.id = gu.pid where si.id = ?'
@@ -120,7 +142,12 @@ export function getLocalNum(req, res) {
     db.query(sql, localId, (err, result) => {
         if(err) {console.log( err)}
         else{ 
+            
+
+            //result.push( { Nickname : userNickname })
+            result[0]["nickName"] = userNickname;
             res.send(result) 
+            console.log(result);
             console.log('getLocalNum 성공');
         }
     })
@@ -174,6 +201,7 @@ export async function userRegister ( req, res)  {
 
 
 import passport from 'passport';
+import e from 'express';
 
 
 
@@ -254,7 +282,7 @@ export async function findUser (loginid) {
             
             else{ 
                 console.log("아이디 찾았음");
-                console.log(result);
+                
               return resolve( result )}
         })
 

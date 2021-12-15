@@ -112,7 +112,10 @@ router.post('/Register', userRegister)
 router.post('/Login', 
   passport.authenticate('local', { failureRedirect: 'https://localhost:3000/'} ),
   function(req, res) {
-    res.json( {msg : "로그인 성공" })
+
+    console.log(req.user);
+    res.json(req.user);
+    
   }
   );
 

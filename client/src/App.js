@@ -11,24 +11,35 @@ import BoardInput from './component/BoardInput';
 import Register from './pages/register';
 import Login from './pages/login';
 import Logout from './pages/logout';
+import { UserContext } from './UserContext/UserContext'
+import { useState, useMemo } from 'react'
+
+
+
+
 
 
 function App() {
 
   const UserLocationNum = 2;
 
-
+  const [user, setUser] = useState(null)
+  const value = useMemo( () => ( {user, setUser} ), [user, setUser]  )
 
   return (
 
-<BrowserRouter>
+    <BrowserRouter>
+
       <div className="App">
-      
         
         
+        <UserContext.Provider value = {value}>
+
         <Header LocationId = {UserLocationNum}/>
 
+        
         <Routes>
+          {/* <Route path ="/"  element ={<Contents LocationId = {UserLocationNum}/>}/> */}
           <Route path ="/"  element ={<Contents LocationId = {UserLocationNum}/>}/>
         </Routes>
 
@@ -65,6 +76,8 @@ function App() {
           <Route path ="/Logout"  element ={<Logout />}/>
         </Routes>
        
+      </UserContext.Provider>
+      
       </div>
 
     </BrowserRouter>
