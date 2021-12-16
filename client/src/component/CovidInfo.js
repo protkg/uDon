@@ -10,7 +10,7 @@ const CovidInfo = () => {
 
     const [CovidInfoData, setCovidInfoData] = useState([])
 
-    const ServiceKey = "dyPpiX4Q2D0axTGBD%2FhzMwlFuQcMn%2FTVIYJgAMlvIJFkPTTNFrhH6a6rvYmX6RM2rUZKLt7IelOcMJp2Eraf6w%3D%3D";
+    const ServiceKey = process.env.REACT_APP_COVID_SERVICEKEY;
 
     
 

@@ -120,6 +120,8 @@ const BoardComment = () => {
     }
 
 
+
+    
     // 댓글 부분
 
     const [replyflag, setReplyflag] = useState(null)
