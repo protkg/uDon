@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Axios from 'axios'
-import { Carousel, Card, Row, ListGroup, Table, Dropdown, CardGroup, Accordion} from "react-bootstrap"
+import { CardGroup, Accordion} from "react-bootstrap"
 
 const CovidInfo = () => {
 
@@ -10,7 +10,7 @@ const CovidInfo = () => {
 
     const [CovidInfoData, setCovidInfoData] = useState([])
 
-    const ServiceKey = process.env.REACT_APP_COVID_SERVICEKEY;
+    const ServiceKey = "서비스키";
 
     
 
@@ -41,8 +41,6 @@ const CovidInfo = () => {
 
         } ).then( (res) => {
 
-            console.log(res.data.response.body.items.item)
-            
             setCovidInfoData(res.data.response.body.items.item)
         })
 

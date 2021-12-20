@@ -1,15 +1,5 @@
-import { useState } from "react";
 
 const BoardTableRowsEdit = ({editDataForm, updateBoardDataSet,insertUpdateData}) => {
-
-    // const [upDateTitle, setUpDateTitle] = useState(dataDetail.title);
-    // const [upDateContent, setUpDateContent] = useState(dataDetail.content);
-    
-    
-    // const onChange =  (event) => {
-    //     setUpDateTitle(event.target.value)
-    // }
-
 
     return (
         <>

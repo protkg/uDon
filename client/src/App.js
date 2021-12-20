@@ -1,10 +1,8 @@
 import './App.css';
 import Header from './component/Header';
-import BoardList from './component/BoardList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Contents from './pages/Contents'
 import BoardDetail from './component/BoardDetail';
-import BoardUpdate from './component/backup/BoardUpdate';
 import BoardDelete from './component/BoardDelete';
 import TownBoard from './pages/townBoard';
 import BoardInput from './component/BoardInput';
@@ -13,10 +11,6 @@ import Login from './pages/login';
 import Logout from './pages/logout';
 import { UserContext } from './UserContext/UserContext'
 import { useState, useMemo } from 'react'
-
-
-
-
 
 
 function App() {

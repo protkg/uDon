@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 const LocalList =  ({localData, userSi, userName}) => {
-
-    console.log("userName >>>", userName);
 
 
     return (
